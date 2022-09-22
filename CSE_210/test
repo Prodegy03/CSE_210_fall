@@ -1,0 +1,82 @@
+space = (' ')
+line_1 = [1,space,2,space,3] 
+line_2 = [4,space,5,space,6]
+line_3 = [7,space, 8,space, 9]
+column_1 =[line_1[0], line_2[0],line_3[0]]
+column_2 =[line_1[2], line_2[2],line_3[2]]
+column_3 =[line_1[4], line_2[4],line_3[4]]
+diag_1 = [line_1[0], line_2[2], line_3[4]]
+diag_2 = [line_1[4], line_2[2], line_3[0]]
+seperation =('-+-+-')
+board = [line_1, seperation, line_2, seperation, line_3]
+
+
+for i in board:
+    print(*i)
+    
+print(column_1)
+print(column_2)
+print(column_3) 
+print(diag_1)
+print(diag_2)
+
+change = int(input(f"player's turn to choose a square (1-9): "))
+
+if change == int(line_1[0]):
+    line_1[0] = 'X'
+else:
+    line_1[0] = line_1[0]
+if change == int(line_1[2]):
+    line_1[2] = 'X'
+else:
+    line_1[2] = line_1[2]
+if change == int(line_1[4]):
+    line_1[4] = 'X'
+else:
+    line_1[4] = line_1[4]
+
+if change == int(line_2[0]):
+    line_2[0] = 'X'
+else:
+    line_2[0] = line_2[0]
+if change == int(line_2[2]):
+    line_2[2] = 'X'
+else:
+    line_2[2] = line_2[2]
+if change == int(line_2[4]):
+    line_2[4] = 'X'
+else:
+    line_2[4] = line_2[4]
+
+if change == int(line_3[0]):
+    line_3[0] = 'X'
+else:
+    line_3[0] = line_3[0]
+if change == int(line_3[2]):
+    line_3[2] = 'X'
+else:
+    line_3[2] = line_3[2]
+if change == int(line_3[4]):
+    line_3[4] = 'X'
+else:
+    line_3[4] = line_3[4]
+
+column_1 =[line_1[0], line_2[0],line_3[0]]
+column_2 =[line_1[2], line_2[2],line_3[2]]
+column_3 =[line_1[4], line_2[4],line_3[4]]
+diag_1 = [line_1[0], line_2[2], line_3[4]]
+diag_2 = [line_1[4], line_2[2], line_3[0]]
+
+print(column_1)
+print(column_2)
+print(column_3) 
+print()
+print(diag_1)
+print(diag_2)
+print()
+print(line_1)
+print(line_2)
+print(line_3)
+board = [line_1, seperation, line_2, seperation, line_3]
+for i in board:
+    print(*i)

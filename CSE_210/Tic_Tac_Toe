@@ -1,0 +1,119 @@
+'''
+Tic-Tac-Toe: A Solution
+Author: Spencer Christensen
+'''
+
+def main():
+    space = (' ')
+    line_1 = [1,space,2,space,3] 
+    line_2 = [4,space,5,space,6]
+    line_3 = [7,space, 8,space, 9]
+    diag_1 = [line_1[0], line_2[2], line_3[4]]
+    diag_2 = [line_1[4], line_2[2], line_3[0]]
+    column_1 =[line_1[0], line_2[0],line_3[0]]
+    column_2 =[line_1[2], line_2[2],line_3[2]]
+    column_3 =[line_1[4], line_2[4],line_3[4]]
+    board = create_board(line_1,line_2,line_3)
+    play = True
+    player = next_player("")
+    winner(line_1,line_2,line_3,column_1,column_2,column_3,diag_1,diag_2, space)
+    while not winner:
+        display_board(board)
+        player = next_player(player)        
+        move = next_move(line_1, line_2, line_3, player)
+        move
+        update = update_all(line_1, line_2, line_3, diag_1, diag_2, column_1, column_2, column_3,board)
+        update
+        winner(line_1,line_2,line_3,column_1,column_2,column_3,diag_1,diag_2, space)
+    display_board(board)
+    print("Good game. Thanks for playing!") 
+    return board
+    
+def winner(line_1,line_2,line_3,column_1,column_2,column_3,diag_1,diag_2, space):
+    if line_1 == ["X", space,"X", space,"X" ] or ["O", space,"O", space,"O" ]:
+        return True
+    elif line_2 == ["X", space,"X", space,"X" ] or ["O", space,"O", space,"O" ]:
+        return True
+    elif line_3 == ["X", space,"X", space,"X" ] or ["O", space,"O", space,"O" ]:
+        return True
+    elif column_1 == ["X","X", "X" ] or ["O","O", "O" ]:
+        return True
+    elif column_2 == ["X", "X", "X" ] or ["O", "O","O" ]:
+        return True
+    elif column_3 == ["X", "X", "X" ] or ["O", "O", "O" ]:
+        return True
+    elif diag_1 == ["X","X", "X" ] or ["O", "O", "O" ]:
+        return True
+    elif diag_2 == ["X", "X", "X" ] or ["O", "O", "O" ]:
+        return True
+    else:
+        return False
+def next_player(current):
+    if current == "" or current == "O":
+        return "X"
+    elif current == "X":
+        return "O"
+
+def update_all(line_1, line_2, line_3, diag_1, diag_2, column_1, column_2, column_3, board):
+    diag_1 = [line_1[0], line_2[2], line_3[4]]
+    diag_2 = [line_1[4], line_2[2], line_3[0]]
+    column_1 =[line_1[0], line_2[0],line_3[0]]
+    column_2 =[line_1[2], line_2[2],line_3[2]]
+    column_3 =[line_1[4], line_2[4],line_3[4]]
+    return line_1, line_2, line_3, diag_1,diag_2, column_1, column_2, column_3
+    
+
+def create_board(line_1,line_2,line_3):
+
+    seperation =('-+-+-')
+    board = [line_1, seperation, line_2, seperation, line_3]
+    return board
+def display_board(board):
+    for i in board:
+        print(*i)
+    return
+
+def next_move(line_1, line_2, line_3, player):
+    change = str(input(f"player's turn to choose a square (1-9): "))
+    if change == str(line_1[0]):
+     line_1[0] = player
+    else:
+        line_1[0] = line_1[0]
+    if change == str(line_1[2]):
+        line_1[2] = player
+    else:
+        line_1[2] = line_1[2]
+    if change == str(line_1[4]):
+        line_1[4] = player
+    else:
+      line_1[4] = line_1[4]
+
+    if change == str(line_2[0]):
+        line_2[0] = player
+    else:
+        line_2[0] = line_2[0]
+    if change == str(line_2[2]):
+        line_2[2] = player
+    else:
+        line_2[2] = line_2[2]
+    if change == str(line_2[4]):
+        line_2[4] = player
+    else:
+        line_2[4] = line_2[4]
+
+    if change == str(line_3[0]):
+        line_3[0] = player
+    else:
+        line_3[0] = line_3[0]
+    if change == str(line_3[2]):
+        line_3[2] = player
+    else:
+        line_3[4] = line_3[4]
+    if change == str(line_3[4]):
+        line_3[4] = player
+    else:
+        line_3[4] = line_3[4]
+    return line_1, line_2, line_3
+
+if __name__ == "__main__":
+    main()
