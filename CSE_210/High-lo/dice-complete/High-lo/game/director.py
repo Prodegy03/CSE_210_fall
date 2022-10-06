@@ -22,7 +22,7 @@ class Director:
         self.card = []
         self.is_playing = True
         self.score = 0
-        self.total_score = 0
+        self.total_score = 300
 
         for i in range(1):
             card = Card()
